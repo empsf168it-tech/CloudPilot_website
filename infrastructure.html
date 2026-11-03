@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="CloudPilot Infrastructure — Public, Private & Hybrid Cloud Architecture, Interactive Topology Diagram, Zero-Trust Encryption, Auto-Scaling, Migration Timeline & Global Backbone." />
+  <title>Architecture, Security &amp; Migration | CloudPilot Infrastructure</title>
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 CSS & Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- CloudPilot Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- ========================================================================
+       STICKY HEADER (IDENTICAL ACROSS ALL 4 PAGES)
+       ======================================================================== -->
+  <header class="cp-header">
+    <div class="container">
+      <nav class="cp-navbar" aria-label="Primary Navigation">
+        <a href="index.html" class="cp-brand">
+          <span class="cp-brand-mark"><i class="bi bi-cloud-lightning-fill"></i></span>
+          <span class="cp-brand-text">Cloud<span>Pilot</span></span>
+        </a>
+
+        <div class="cp-nav-collapse" id="cpNavCollapse">
+          <ul class="cp-nav-menu">
+            <li><a href="index.html" class="cp-nav-link"><i class="bi bi-grid-1x2"></i> Home</a></li>
+            <li><a href="services.html" class="cp-nav-link"><i class="bi bi-cpu"></i> Services</a></li>
+            <li><a href="infrastructure.html" class="cp-nav-link active"><i class="bi bi-diagram-3"></i>
+                Infrastructure</a></li>
+            <li><a href="pricing.html" class="cp-nav-link"><i class="bi bi-shield-check"></i> Pricing &amp; Support</a>
+            </li>
+          </ul>
+          <div class="d-lg-none mt-3 pt-3 border-top border-secondary border-opacity-25 d-flex flex-column gap-2">
+            <button type="button" class="btn-cp-secondary w-100" data-bs-toggle="modal"
+              data-bs-target="#cpConsoleModal">
+              <i class="bi bi-terminal"></i> Console Login
+            </button>
+            <a href="pricing.html#support-contact" class="btn-cp-primary w-100">
+              <i class="bi bi-rocket-takeoff"></i> Get Started
+            </a>
+          </div>
+        </div>
+
+        <div class="cp-nav-actions">
+          <button type="button" class="cp-theme-toggle" data-theme-toggle aria-label="Switch theme">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn-cp-secondary btn-cp-sm d-none d-lg-inline-flex" data-bs-toggle="modal"
+            data-bs-target="#cpConsoleModal">
+            Log In
+          </button>
+          <a href="pricing.html" class="btn-cp-primary btn-cp-sm d-none d-lg-inline-flex">
+            Get Started <i class="bi bi-arrow-right"></i>
+          </a>
+          <button type="button" class="cp-mobile-toggle" id="cpMobileToggle" aria-label="Toggle Menu"
+            aria-expanded="false" aria-controls="cpNavCollapse">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         INFRASTRUCTURE HERO SECTION (VIEWPORT-FITTED HIGH-LEVEL 2-COLUMN STAGE)
+         ====================================================================== -->
+    <section class="cp-hero">
+      <div class="cp-hero-glow-1"></div>
+      <div class="cp-hero-glow-2"></div>
+
+      <div class="container position-relative my-auto">
+        <div class="row align-items-center g-4">
+          <!-- Left Column: Eyebrow, Heading, Subtitle, CTAs & 4 Architecture Pillars -->
+          <div class="col-lg-6 reveal-up">
+            <div class="eyebrow-badge">
+              <i class="bi bi-diagram-3-fill text-info"></i>
+              <span>Cloud Architecture, Zero-Trust Security &amp; Global Migration</span>
+            </div>
+
+            <h1 class="display-hero mb-3">
+              Resilient Multi-Region<br />
+              Architecture with<br />
+              <span class="text-gradient">Zero Single Points of Failure</span>
+            </h1>
+
+            <p class="section-subtitle mb-4">
+              Explore our Public, Private, and Hybrid cloud topologies, interactive 4-layer architecture blueprint, hardware-rooted encryption, and global 180+ Tbps Anycast fiber network.
+            </p>
+
+            <!-- Primary & Secondary CTAs -->
+            <div class="d-flex flex-wrap align-items-center gap-3 cp-hero-cta-group">
+              <a href="#architecture-diagram" class="btn-cp-primary">
+                <span>Interactive Blueprint</span> <i class="bi bi-diagram-3-fill"></i>
+              </a>
+              <a href="#migration-timeline" class="btn-cp-secondary">
+                <i class="bi bi-arrow-left-right text-info"></i> <span>Migration Timeline</span>
+              </a>
+            </div>
+
+            <!-- 4-Column Architecture Feature Strip -->
+            <div class="cp-hero-pillars">
+              <div class="cp-pillar-item">
+                <i class="bi bi-globe2 cp-pillar-icon"></i>
+                <div class="cp-pillar-title">180+ Tbps Edge</div>
+                <div class="cp-pillar-sub">42 Anycast PoPs</div>
+              </div>
+              <div class="cp-pillar-item">
+                <i class="bi bi-shield-lock-fill cp-pillar-icon"></i>
+                <div class="cp-pillar-title">FIPS 140-3 HSM</div>
+                <div class="cp-pillar-sub">AES-256 &amp; mTLS 1.3</div>
+              </div>
+              <div class="cp-pillar-item">
+                <i class="bi bi-building-lock cp-pillar-icon"></i>
+                <div class="cp-pillar-title">3 Cloud Models</div>
+                <div class="cp-pillar-sub">Public, Private, Hybrid</div>
+              </div>
+              <div class="cp-pillar-item">
+                <i class="bi bi-arrow-repeat cp-pillar-icon"></i>
+                <div class="cp-pillar-title">Live CDC Sync</div>
+                <div class="cp-pillar-sub">Zero-Downtime Cutover</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 3D Glowing Architecture & Security Shield + 4 Floating Cards -->
+          <div class="col-lg-6 reveal-up">
+            <div class="cp-hero-holo-stage">
+              <!-- Floating Card 1: DDoS Scrubbing (Top Left) -->
+              <div class="cp-float-card card-uptime">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-radar text-info small"></i>
+                  <span class="small text-secondary">DDoS Shield</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <span class="rounded-circle" style="width:9px;height:9px;background:#10D988;box-shadow:0 0 8px #10D988;"></span>
+                  <span class="h5 fw-bold text-white mb-0 font-mono" data-counter="180" data-decimals="0" data-suffix=" Tbps">180 Tbps</span>
+                </div>
+                <svg viewBox="0 0 140 34" class="w-100" style="height:28px;">
+                  <defs>
+                    <linearGradient id="infDdosGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#10D988" stop-opacity="0.45"/>
+                      <stop offset="100%" stop-color="#00C8F0" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M2,27 L28,21 L54,23 L82,11 L108,14 L136,4 L136,32 L2,32 Z" fill="url(#infDdosGrad)"/>
+                  <polyline fill="none" stroke="#10D988" stroke-width="2.2" points="2,27 28,21 54,23 82,11 108,14 136,4"/>
+                </svg>
+              </div>
+
+              <!-- Floating Card 2: Encryption Standard (Bottom Left) -->
+              <div class="cp-float-card card-security">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-file-earmark-lock2-fill text-info"></i>
+                  <span class="small text-secondary">Zero-Trust Vault</span>
+                </div>
+                <div class="fw-bold small" style="color:#10D988;">AES-256-GCM + HSM</div>
+              </div>
+
+              <!-- Central 3D Holographic Architecture & Security Shield SVG -->
+              <div class="cp-holo-centerpiece">
+                <svg viewBox="0 0 560 440" class="w-100 h-auto" role="img" aria-label="CloudPilot 3D Multi-Layer Cloud Architecture and Zero-Trust Security Shield">
+                  <defs>
+                    <radialGradient id="infHoloGlow" cx="50%" cy="48%" r="48%">
+                      <stop offset="0%" stop-color="#168BFF" stop-opacity="0.54"/>
+                      <stop offset="55%" stop-color="#00C8F0" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="#06152B" stop-opacity="0"/>
+                    </radialGradient>
+                    <linearGradient id="infRim" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#70E8FF"/>
+                      <stop offset="50%" stop-color="#00C8F0"/>
+                      <stop offset="100%" stop-color="#087BFF"/>
+                    </linearGradient>
+                    <linearGradient id="infShield" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#163C6B" stop-opacity="0.95"/>
+                      <stop offset="100%" stop-color="#06152B" stop-opacity="0.98"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Ambient Halo -->
+                  <circle cx="280" cy="215" r="205" fill="url(#infHoloGlow)"/>
+
+                  <!-- 3 Stacked Isometric Architecture Planes (Edge, Compute, Storage) -->
+                  <polygon points="280,295 445,345 280,395 115,345" fill="#081D38" fill-opacity="0.88" stroke="#087BFF" stroke-width="2"/>
+                  <polygon points="280,255 435,302 280,348 125,302" fill="#0D294A" fill-opacity="0.88" stroke="#00C8F0" stroke-width="2"/>
+                  <polygon points="280,215 425,258 280,302 135,258" fill="#102F54" fill-opacity="0.92" stroke="#70E8FF" stroke-width="2.4"/>
+
+                  <!-- Glowing Cloud Backdrop -->
+                  <path d="M178,215 C145,215 125,190 131,160 C135,136 155,120 179,120 C191,82 228,58 274,60 C322,62 360,94 368,138 C392,140 412,160 410,186 C408,206 390,215 368,215 Z"
+                        fill="url(#infShield)" stroke="url(#infRim)" stroke-width="3.2"/>
+
+                  <!-- Central Cyber-Security Shield & Padlock -->
+                  <path d="M280,92 L344,116 V174 C344,222 316,256 280,272 C244,256 216,222 216,174 V116 Z"
+                        fill="url(#infShield)" stroke="url(#infRim)" stroke-width="3.2"/>
+                  <rect x="262" y="166" width="36" height="30" rx="5" fill="#00C8F0"/>
+                  <path d="M268,166 V154 C268,146 273,140 280,140 C287,140 292,146 292,154 V166" fill="none" stroke="#70E8FF" stroke-width="3.5"/>
+                  <circle cx="280" cy="180" r="4" fill="#06152B"/>
+
+                  <!-- Left & Right Hybrid Interconnect Nodes -->
+                  <circle cx="135" cy="258" r="7" fill="#20DFFF"/>
+                  <circle cx="425" cy="258" r="7" fill="#20DFFF"/>
+                  <circle cx="280" cy="395" r="7" fill="#70E8FF"/>
+                </svg>
+              </div>
+
+              <!-- Floating Card 3: Anycast Latency (Top Right) -->
+              <div class="cp-float-card card-servers">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-lightning-charge text-info"></i>
+                  <div>
+                    <div class="small text-secondary" style="font-size:0.74rem;">Anycast Latency</div>
+                    <div class="h5 fw-bold text-white mb-0 font-mono">&lt; 1.4 ms</div>
+                  </div>
+                </div>
+                <svg viewBox="0 0 150 28" class="w-100 mt-1" style="height:24px;">
+                  <rect x="6" y="6" width="9" height="22" rx="1.5" fill="#70E8FF"/>
+                  <rect x="22" y="9" width="9" height="19" rx="1.5" fill="#20DFFF"/>
+                  <rect x="38" y="8" width="9" height="20" rx="1.5" fill="#00C8F0"/>
+                  <rect x="54" y="11" width="9" height="17" rx="1.5" fill="#00C8F0"/>
+                  <rect x="70" y="7" width="9" height="21" rx="1.5" fill="#20DFFF"/>
+                  <rect x="86" y="10" width="9" height="18" rx="1.5" fill="#249EFF"/>
+                  <rect x="102" y="5" width="9" height="23" rx="1.5" fill="#70E8FF"/>
+                  <rect x="118" y="8" width="9" height="20" rx="1.5" fill="#20DFFF"/>
+                  <rect x="134" y="4" width="9" height="24" rx="1.5" fill="#70E8FF"/>
+                </svg>
+              </div>
+
+              <!-- Floating Card 4: Global Compliance (Bottom Right) -->
+              <div class="cp-float-card card-regions">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-patch-check-fill text-info"></i>
+                  <div>
+                    <div class="small text-secondary" style="font-size:0.74rem;">Attested Compliance</div>
+                    <div class="h6 fw-bold text-white mb-0 font-mono">SOC 2 &bull; ISO 27001</div>
+                  </div>
+                </div>
+                <div class="small text-info font-mono mt-1">HIPAA &bull; PCI-DSS Level 1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Viewport Bar: Architecture Sections Quick Navigation -->
+        <div class="cp-hero-trust-bar reveal-up" role="navigation" aria-label="Infrastructure Section Jump">
+          <div class="cp-trust-label"><i class="bi bi-compass text-info me-1"></i> Architecture Modules:</div>
+          <div class="cp-service-nav-pills justify-content-start flex-grow-1">
+            <a href="#cloud-models" class="cp-service-pill active"><i class="bi bi-clouds me-1"></i>Public / Private / Hybrid</a>
+            <a href="#architecture-diagram" class="cp-service-pill"><i class="bi bi-diagram-3 me-1"></i>4-Layer Blueprint</a>
+            <a href="#security-compliance" class="cp-service-pill"><i class="bi bi-shield-lock me-1"></i>Zero-Trust Security</a>
+            <a href="#uptime-scalability" class="cp-service-pill"><i class="bi bi-lightning-charge me-1"></i>Auto-Scale Simulator</a>
+            <a href="#migration-timeline" class="cp-service-pill"><i class="bi bi-arrow-left-right me-1"></i>Migration Timeline</a>
+            <a href="#global-network" class="cp-service-pill"><i class="bi bi-globe2 me-1"></i>Global Backbone</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 1: CLOUD ARCHITECTURE OPTIONS (PUBLIC, PRIVATE & HYBRID CLOUD)
+         Uses Unique Images:
+         - Public Cloud: assets/images/7.jpg
+         - Private Cloud: assets/images/8.jpg
+         - Hybrid Cloud: assets/images/13.jpg
+         ====================================================================== -->
+    <section class="cp-section" id="cloud-models">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5 reveal-up">
+          <div class="col-lg-8">
+            <div class="eyebrow-badge mx-auto">
+              <span class="pulse-dot"></span>
+              <span>DEPLOYMENT TOPOLOGIES</span>
+            </div>
+            <h2 class="section-title">Public, Private &amp; Hybrid Cloud Architecture Options</h2>
+            <p class="section-subtitle mx-auto">
+              Choose elastic multi-tenant agility, physically isolated single-tenant data center cages, or high-speed
+              bi-directional hybrid cloud synchronization.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Option 1: Public Cloud (Image 7) -->
+          <div class="col-lg-4 reveal-up">
+            <article class="cp-card">
+              <div class="cp-visual-frame mb-4" style="aspect-ratio: 16/10;">
+                <img src="assets/images/7.jpg"
+                  alt="CloudPilot Public Cloud Hyperscale Server Corridor with Glowing Particle Cloud Hologram"
+                  loading="lazy" />
+              </div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="font-mono small text-info">01 // ELASTIC HYPERSCALE</span>
+                <span class="badge bg-primary bg-opacity-25 text-info border border-info font-mono">Instant
+                  Provision</span>
+              </div>
+              <h3 class="h4 mb-2">Public Cloud Fabric</h3>
+              <p class="mb-3">
+                On-demand compute, NVMe storage, and Kubernetes clusters deployed across our shared optical backbone
+                with strict hardware-enforced tenant isolation.
+              </p>
+              <ul class="cp-spec-list mt-auto mb-4">
+                <li><i class="bi bi-check2-circle"></i> Per-second billing with zero minimum commitment</li>
+                <li><i class="bi bi-check2-circle"></i> Instant horizontal scaling across 42 global PoPs</li>
+                <li><i class="bi bi-check2-circle"></i> Hardware SEV-SNP memory encryption per VM</li>
+              </ul>
+              <a href="pricing.html" class="btn-cp-secondary w-100">Deploy Public Cloud</a>
+            </article>
+          </div>
+
+          <!-- Option 2: Private Cloud (Image 8) -->
+          <div class="col-lg-4 reveal-up">
+            <article class="cp-card">
+              <div class="cp-visual-frame mb-4" style="aspect-ratio: 16/10;">
+                <img src="assets/images/8.jpg"
+                  alt="CloudPilot Private Cloud Dedicated Enterprise Data Center Suite with Isolated Black Server Racks and Overhead Fiber Trays"
+                  loading="lazy" />
+              </div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="font-mono small text-info">02 // SINGLE-TENANT ISOLATION</span>
+                <span class="badge bg-info text-dark font-mono">Dedicated Cage</span>
+              </div>
+              <h3 class="h4 mb-2">Private Cloud Suites</h3>
+              <p class="mb-3">
+                Physically isolated server cabinets, dedicated overhead fiber trays, and single-tenant bare-metal blades
+                engineered for regulated banking, healthcare, and sovereign data workloads.
+              </p>
+              <ul class="cp-spec-list mt-auto mb-4">
+                <li><i class="bi bi-check2-circle"></i> 100% dedicated physical racks &amp; switches</li>
+                <li><i class="bi bi-check2-circle"></i> Biometric cage access &amp; dedicated HSM vaults</li>
+                <li><i class="bi bi-check2-circle"></i> Custom kernel tuning &amp; compliance auditing</li>
+              </ul>
+              <a href="pricing.html#support-contact" class="btn-cp-primary w-100">Request Private Cage Specs</a>
+            </article>
+          </div>
+
+          <!-- Option 3: Hybrid Cloud (Image 13) -->
+          <div class="col-lg-4 reveal-up">
+            <article class="cp-card">
+              <div class="cp-visual-frame mb-4" style="aspect-ratio: 16/10;">
+                <img src="assets/images/13.jpg"
+                  alt="CloudPilot Hybrid Cloud Architecture Showing Dual On-Premise and Cloud Server Racks Synchronizing Bi-Directionally with Central Global Cloud"
+                  loading="lazy" />
+              </div>
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="font-mono small text-info">03 // MULTI-CLOUD INTERCONNECT</span>
+                <span class="badge bg-success bg-opacity-25 text-success border border-success font-mono">100G Direct
+                  Link</span>
+              </div>
+              <h3 class="h4 mb-2">Hybrid &amp; Multi-Cloud</h3>
+              <p class="mb-3">
+                Bridge your on-premise server racks or AWS/GCP environments directly into CloudPilot via dedicated
+                100Gbps optical wavelengths and unified BGP routing.
+              </p>
+              <ul class="cp-spec-list mt-auto mb-4">
+                <li><i class="bi bi-check2-circle"></i> Bi-directional active-active state synchronization</li>
+                <li><i class="bi bi-check2-circle"></i> Unified Kubernetes control plane across clouds</li>
+                <li><i class="bi bi-check2-circle"></i> Sub-2ms Direct Connect private cross-connects</li>
+              </ul>
+              <a href="#migration-timeline" class="btn-cp-secondary w-100">View Hybrid Sync Pipeline</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 2: VISUALLY ATTRACTIVE INTERACTIVE CLOUD ARCHITECTURE DIAGRAM
+         Powered by assets/js/dashboard.js
+         ====================================================================== -->
+    <section class="cp-section cp-section-alt" id="architecture-diagram">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5 reveal-up">
+          <div class="col-lg-8">
+            <div class="eyebrow-badge mx-auto">
+              <span class="pulse-dot"></span>
+              <span>INTERACTIVE SYSTEM TOPOLOGY</span>
+            </div>
+            <h2 class="section-title">CloudPilot 4-Layer Reference Architecture</h2>
+            <p class="section-subtitle mx-auto">
+              Click any architectural layer below to inspect packet flow protocols, latency SLAs, hardware security
+              boundaries, and throughput capacities.
+            </p>
+          </div>
+        </div>
+
+        <div class="cp-arch-diagram reveal-up">
+          <div class="row g-4 align-items-center">
+            <!-- Left 7 Columns: Visual Interactive Stack Diagram -->
+            <div class="col-lg-7">
+              <!-- Layer 1: Edge -->
+              <div class="cp-arch-layer active" data-arch-layer="edge" tabindex="0" role="button"
+                aria-label="Inspect Layer 1 Global Anycast Edge">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                  <span class="font-mono small text-info fw-bold">LAYER 01 // GLOBAL ANYCAST EDGE &amp; WAF</span>
+                  <span class="badge bg-info text-dark font-mono">180 Tbps Scrubbing</span>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="cp-node-pill"><i class="bi bi-globe2"></i> 42 Anycast PoPs</span>
+                  <span class="cp-node-pill"><i class="bi bi-shield-shaded"></i> Inline L3-L7 DDoS Shield</span>
+                  <span class="cp-node-pill"><i class="bi bi-lightning"></i> QUIC / TLS 1.3 Termination</span>
+                </div>
+              </div>
+
+              <div class="cp-arch-connector"><i class="bi bi-arrow-down-up"></i> <span
+                  class="font-mono small ms-2">200Gbps Encrypted Optical Backbone</span></div>
+
+              <!-- Layer 2: API Gateway & Mesh -->
+              <div class="cp-arch-layer" data-arch-layer="mesh" tabindex="0" role="button"
+                aria-label="Inspect Layer 2 API Gateway and Service Mesh">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                  <span class="font-mono small text-info fw-bold">LAYER 02 // API GATEWAY &amp; CILIUM eBPF MESH</span>
+                  <span class="badge bg-primary font-mono">Strict mTLS</span>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="cp-node-pill"><i class="bi bi-diagram-2"></i> L7 Envoy Load Balancers</span>
+                  <span class="cp-node-pill"><i class="bi bi-key"></i> SPIFFE / SPIRE Identity</span>
+                  <span class="cp-node-pill"><i class="bi bi-router"></i> Virtual Network Router</span>
+                </div>
+              </div>
+
+              <div class="cp-arch-connector"><i class="bi bi-arrow-down-up"></i> <span
+                  class="font-mono small ms-2">SR-IOV Zero-Copy Kernel Bypass</span></div>
+
+              <!-- Layer 3: Compute Plane -->
+              <div class="cp-arch-layer" data-arch-layer="compute" tabindex="0" role="button"
+                aria-label="Inspect Layer 3 Bare-Metal and Kubernetes Compute">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                  <span class="font-mono small text-info fw-bold">LAYER 03 // BARE-METAL &amp; KUBERNETES COMPUTE
+                    PLANE</span>
+                  <span class="badge bg-primary font-mono">AMD EPYC™ Gen4</span>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="cp-node-pill"><i class="bi bi-cpu"></i> KVM Dedicated vCPUs</span>
+                  <span class="cp-node-pill"><i class="bi bi-boxes"></i> Managed K8s Worker Pods</span>
+                  <span class="cp-node-pill"><i class="bi bi-gpu-card"></i> AI / Tensor GPU Nodes</span>
+                </div>
+              </div>
+
+              <div class="cp-arch-connector"><i class="bi bi-arrow-down-up"></i> <span
+                  class="font-mono small ms-2">NVMe-over-Fabrics (RDMA 100G)</span></div>
+
+              <!-- Layer 4: Storage & Database Quorum -->
+              <div class="cp-arch-layer" data-arch-layer="storage" tabindex="0" role="button"
+                aria-label="Inspect Layer 4 Distributed Storage and SQL Quorum">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                  <span class="font-mono small text-info fw-bold">LAYER 04 // DISTRIBUTED NVMe &amp; RAFT SQL
+                    QUORUM</span>
+                  <span class="badge bg-success font-mono">3x Synchronous Replica</span>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="cp-node-pill"><i class="bi bi-device-ssd"></i> Block Storage 04 (1.2M IOPS)</span>
+                  <span class="cp-node-pill"><i class="bi bi-bucket"></i> S3 Object Storage (11-Nines)</span>
+                  <span class="cp-node-pill"><i class="bi bi-database-lock"></i> Multi-AZ SQL &amp; Redis</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right 5 Columns: Live Layer Specification Inspector -->
+            <div class="col-lg-5">
+              <div class="cp-card border-info h-100">
+                <div class="font-mono small text-info mb-2" id="archSpecBadge">LAYER 01 // GLOBAL EDGE &amp; WAF</div>
+                <h3 class="h4 text-white mb-3" id="archSpecTitle">Anycast BGP Edge Network &amp; Zero-Trust DDoS Shield
+                </h3>
+                <p class="mb-4" id="archSpecDesc">
+                  Traffic enters through 42 global Anycast Points of Presence (PoPs) with inline L3/L4/L7 DDoS
+                  mitigation capable of absorbing 180+ Tbps of volumetric attacks at line rate.
+                </p>
+
+                <div class="d-grid gap-3 mt-auto">
+                  <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25">
+                    <div class="small text-secondary">Core Protocols</div>
+                    <div class="font-mono text-white fw-semibold" id="archSpecProtocol">BGP Anycast + QUIC / HTTP/3 +
+                      TLS 1.3</div>
+                  </div>
+                  <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25">
+                    <div class="small text-secondary">Performance SLA</div>
+                    <div class="font-mono text-info fw-semibold" id="archSpecSla">&lt; 1.5 ms Edge Termination</div>
+                  </div>
+                  <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25">
+                    <div class="small text-secondary">Security Boundary</div>
+                    <div class="font-mono text-white fw-semibold" id="archSpecSecurity">Inline WAF, Bot Mitigation &amp;
+                      Geo-Fencing</div>
+                  </div>
+                  <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25">
+                    <div class="small text-secondary">Sustained Capacity</div>
+                    <div class="font-mono text-success fw-semibold" id="archSpecThroughput">180 Tbps Global Edge
+                      Capacity</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3: INFRASTRUCTURE SECURITY, DATA ENCRYPTION & ACCESS MANAGEMENT
+         Uses Image 12: assets/images/12.jpg (Glowing Cyan Cloud Security Shield Matrix)
+         ====================================================================== -->
+    <section class="cp-section" id="security-compliance">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-5 reveal-up">
+            <div class="cp-visual-frame mb-4">
+              <img src="assets/images/12.jpg"
+                alt="CloudPilot Cyber-Security Shield with Padlock Superimposed on Digital Cloud Circuit Matrix"
+                loading="lazy" />
+              <div class="cp-visual-overlay-badge">
+                <div>
+                  <div class="font-mono small text-info">HARDWARE-ROOTED SECURITY</div>
+                  <div class="small fw-semibold">TPM 2.0 Measured Boot &bull; Zero-Trust IAM</div>
+                </div>
+                <span class="badge bg-info text-dark font-mono">ZERO-TRUST</span>
+              </div>
+            </div>
+
+            <div class="cp-card p-4">
+              <h3 class="h5 mb-2"><i class="bi bi-award-fill text-info me-2"></i>Continuous Compliance Attestation</h3>
+              <p class="small mb-3">
+                Download real-time audit artifacts and penetration test summaries directly from the CloudPilot
+                compliance portal.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge bg-secondary bg-opacity-25 text-white border border-secondary font-mono p-2">SOC 2
+                  Type II</span>
+                <span class="badge bg-secondary bg-opacity-25 text-white border border-secondary font-mono p-2">ISO
+                  27001 / 27017</span>
+                <span class="badge bg-secondary bg-opacity-25 text-white border border-secondary font-mono p-2">HIPAA
+                  BAA Ready</span>
+                <span class="badge bg-secondary bg-opacity-25 text-white border border-secondary font-mono p-2">PCI-DSS
+                  4.0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 reveal-up">
+            <div class="eyebrow-badge">
+              <span class="pulse-dot"></span>
+              <span>SECURITY, ENCRYPTION &amp; IAM</span>
+            </div>
+            <h2 class="section-title">
+              Cryptographic Data Protection &amp; Fine-Grained Access Management
+            </h2>
+            <p class="mb-4">
+              Security at CloudPilot is engineered into the silicon and optical layers—not bolted on as an afterthought.
+              Every API call, storage block, and container image is cryptographically verified.
+            </p>
+
+            <div class="row g-4">
+              <!-- Data Encryption -->
+              <div class="col-md-6">
+                <div class="cp-card">
+                  <div class="cp-icon-box"><i class="bi bi-file-earmark-lock2"></i></div>
+                  <h3 class="h5 mb-2">Multi-Layer Data Encryption</h3>
+                  <p class="small mb-3">
+                    All NVMe block volumes, S3 object buckets, and database snapshots are encrypted at rest with
+                    AES-256-GCM and in transit with TLS 1.3 / MACsec optical layer encryption.
+                  </p>
+                  <div class="mt-auto font-mono small text-info">BYOK &amp; Dedicated HSM Support</div>
+                </div>
+              </div>
+
+              <!-- Access Management -->
+              <div class="col-md-6">
+                <div class="cp-card">
+                  <div class="cp-icon-box"><i class="bi bi-person-badge"></i></div>
+                  <h3 class="h5 mb-2">Zero-Trust Access Management</h3>
+                  <p class="small mb-3">
+                    Enforce least-privilege RBAC and Attribute-Based Access Control (ABAC) with SAML 2.0 / OIDC SSO,
+                    hardware WebAuthn MFA, and ephemeral short-lived SSH/K8s certificates.
+                  </p>
+                  <div class="mt-auto font-mono small text-info">Immutable Audit Logs (SIEM Ready)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 4: SERVER UPTIME MONITORING & SCALABILITY SIMULATOR
+         Powered by assets/js/dashboard.js
+         ====================================================================== -->
+    <section class="cp-section cp-section-alt" id="uptime-scalability">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 reveal-up">
+            <div class="eyebrow-badge">
+              <span class="pulse-dot"></span>
+              <span>ELASTIC SCALABILITY &amp; UPTIME</span>
+            </div>
+            <h2 class="section-title">
+              Autonomous Horizontal Auto-Scaling &amp; 99.999% Uptime SLA
+            </h2>
+            <p class="mb-4">
+              Whether you experience a sudden viral product launch or seasonal Black Friday surge, CloudPilot’s
+              predictive autoscaler provisions new compute nodes and expands BGP load balancer capacity before CPU
+              saturation occurs.
+            </p>
+
+            <ul class="cp-spec-list mb-4">
+              <li><i class="bi bi-check-circle-fill"></i> <strong>Sub-Second Pod Spawning:</strong> Pre-warmed container
+                image caches launch new replicas in 800ms</li>
+              <li><i class="bi bi-check-circle-fill"></i> <strong>Multi-Region Active-Active:</strong> Automatic DNS
+                health checks route around degraded fiber paths</li>
+              <li><i class="bi bi-check-circle-fill"></i> <strong>Zero-Downtime Vertical Scaling:</strong> Hot-plug
+                vCPUs and NVMe storage capacity online</li>
+            </ul>
+          </div>
+
+          <!-- Interactive Stress Simulator Widget -->
+          <div class="col-lg-6 reveal-up">
+            <div class="cp-dashboard-shell">
+              <div
+                class="d-flex justify-content-between align-items-center flex-wrap gap-2 pb-3 mb-3 border-bottom border-secondary border-opacity-25">
+                <div>
+                  <div class="font-mono small text-info">INTERACTIVE AUTO-SCALING SIMULATOR</div>
+                  <h3 class="h5 text-white mb-0">Live Traffic Spike Response Test</h3>
+                </div>
+                <span class="badge bg-success bg-opacity-25 text-success border border-success font-mono px-3 py-2"
+                  id="simStatusBadge">
+                  <i class="bi bi-check-circle-fill me-1"></i>NOMINAL STEADY STATE
+                </span>
+              </div>
+
+              <div class="row g-3 mb-4">
+                <div class="col-sm-4">
+                  <div class="cp-metric-tile">
+                    <div class="small text-secondary">Cluster Compute</div>
+                    <div class="h5 fw-bold text-white font-mono mt-1 mb-0" id="simActivePods">24 Active Nodes</div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="cp-metric-tile">
+                    <div class="small text-secondary">Edge Throughput</div>
+                    <div class="h5 fw-bold text-info font-mono mt-1 mb-0" id="simThroughput">14.2 Gbps / 210K RPS</div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="cp-metric-tile">
+                    <div class="small text-secondary">API p99 Latency</div>
+                    <div class="h5 fw-bold text-success font-mono mt-1 mb-0" id="simLatency">1.4 ms (Nominal)</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div class="d-flex justify-content-between small mb-1">
+                  <span class="text-secondary">Elastic Fleet Capacity Allocation</span>
+                  <span class="font-mono text-info">99.999% Uptime Maintained</span>
+                </div>
+                <div class="cp-progress-track" style="height: 12px;">
+                  <div class="cp-progress-fill" id="simScaleBar" style="width: 28%;"></div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn-cp-primary btn-cp-sm" id="simulateSpikeBtn">
+                  <i class="bi bi-lightning-charge-fill"></i> Simulate 10x Traffic Spike
+                </button>
+                <button type="button" class="btn-cp-secondary btn-cp-sm" id="resetSpikeBtn">
+                  <i class="bi bi-arrow-counterclockwise"></i> Reset Baseline
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 5: PROFESSIONAL STEP-BY-STEP CLOUD MIGRATION TIMELINE
+         ====================================================================== -->
+    <section class="cp-section" id="migration-timeline">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5 reveal-up">
+          <div class="col-lg-8">
+            <div class="eyebrow-badge mx-auto">
+              <span class="pulse-dot"></span>
+              <span>ENTERPRISE MIGRATION FRAMEWORK</span>
+            </div>
+            <h2 class="section-title">Step-by-Step Zero-Downtime Migration Timeline</h2>
+            <p class="section-subtitle mx-auto">
+              Our dedicated principal migration engineers execute a battle-tested 5-phase methodology to transition your
+              workloads safely.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 reveal-up">
+          <div class="col-md-6 col-lg-4">
+            <div class="cp-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="cp-step-num" style="width:46px;height:46px;font-size:1.05rem;">01</span>
+                <span class="font-mono small text-info">PHASE 1 // DAYS 1–2</span>
+              </div>
+              <h3 class="h5 mb-2">Discovery &amp; TCO Blueprint</h3>
+              <p class="small mb-0">
+                Automated telemetry scanning maps all compute nodes, storage IOPS, database schemas, and network
+                dependencies to produce a right-sized Terraform architecture plan.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="cp-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="cp-step-num" style="width:46px;height:46px;font-size:1.05rem;">02</span>
+                <span class="font-mono small text-info">PHASE 2 // DAYS 3–4</span>
+              </div>
+              <h3 class="h5 mb-2">Zero-Trust Landing Zone</h3>
+              <p class="small mb-0">
+                Provision isolated VPCs, hardware HSM encryption keys, private WireGuard/Direct Connect optical tunnels,
+                and RBAC identity federation.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="cp-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="cp-step-num" style="width:46px;height:46px;font-size:1.05rem;">03</span>
+                <span class="font-mono small text-info">PHASE 3 // DAYS 5–8</span>
+              </div>
+              <h3 class="h5 mb-2">Live Block &amp; CDC Sync</h3>
+              <p class="small mb-0">
+                Continuous block-level storage replication and Change Data Capture (CDC) keep your CloudPilot target
+                databases synchronized within milliseconds of production.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-6">
+            <div class="cp-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="cp-step-num" style="width:46px;height:46px;font-size:1.05rem;">04</span>
+                <span class="font-mono small text-info">PHASE 4 // DAYS 9–11</span>
+              </div>
+              <h3 class="h5 mb-2">Shadow Traffic Replay &amp; Failover Drills</h3>
+              <p class="small mb-0">
+                Replay real production traffic asynchronously against the new CloudPilot cluster to verify p99 latency
+                benchmarks, WAF rules, and disaster recovery runbooks before cutover.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-lg-6">
+            <div class="cp-card border-info">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="cp-step-num" style="width:46px;height:46px;font-size:1.05rem;">05</span>
+                <span class="font-mono small text-success">PHASE 5 // ATOMIC CUTOVER (&lt; 30s)</span>
+              </div>
+              <h3 class="h5 mb-2">BGP Anycast Cutover &amp; 24/7 Hypercare</h3>
+              <p class="small mb-0">
+                Shift global traffic atomically via Anycast DNS/BGP with zero dropped connections, backed by 30 days of
+                dedicated principal engineer hypercare monitoring.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 6: GLOBAL NETWORK INFRASTRUCTURE
+         Uses Image 20: assets/images/20.jpg (Global Cloud Fiber Constellation Mesh)
+         ====================================================================== -->
+    <section class="cp-section cp-section-alt" id="global-network">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 reveal-up">
+            <div class="cp-visual-frame">
+              <img src="assets/images/20.jpg"
+                alt="CloudPilot Global Cloud Network Infrastructure Showing Interconnected Translucent Cloud Nodes Across a Glowing Cyan Fiber-Optic Constellation"
+                loading="lazy" />
+              <div class="cp-visual-overlay-badge">
+                <div>
+                  <div class="font-mono small text-info">GLOBAL ANYCAST CONSTELLATION</div>
+                  <div class="small fw-semibold">42 Edge Regions &bull; 3,200+ Direct ISP Peering Links</div>
+                </div>
+                <span class="badge bg-primary font-mono">180+ Tbps</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 reveal-up">
+            <div class="eyebrow-badge">
+              <span class="pulse-dot"></span>
+              <span>GLOBAL NETWORK INFRASTRUCTURE</span>
+            </div>
+            <h2 class="section-title">
+              Private Subsea &amp; Terrestrial Dark-Fiber Mesh Across 6 Continents
+            </h2>
+            <p class="mb-4">
+              Your packets never traverse congested public internet transit hops between regions. CloudPilot routes all
+              inter-region traffic over privately leased DWDM optical wavelengths with deterministic latency.
+            </p>
+
+            <div class="row g-3 mb-4">
+              <div class="col-sm-6">
+                <div class="p-3 rounded-4 border border-secondary border-opacity-25 bg-dark bg-opacity-25">
+                  <div class="font-mono text-info fw-bold">Americas (14 PoPs)</div>
+                  <div class="small text-secondary mt-1">Ashburn, Silicon Valley, Dallas, Chicago, Toronto, São Paulo
+                    &bull; &lt; 1.1ms Edge</div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded-4 border border-secondary border-opacity-25 bg-dark bg-opacity-25">
+                  <div class="font-mono text-info fw-bold">Europe &amp; UK (13 PoPs)</div>
+                  <div class="small text-secondary mt-1">Frankfurt, London, Amsterdam, Paris, Zurich, Stockholm &bull;
+                    &lt; 1.3ms Edge</div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded-4 border border-secondary border-opacity-25 bg-dark bg-opacity-25">
+                  <div class="font-mono text-info fw-bold">Asia-Pacific (11 PoPs)</div>
+                  <div class="small text-secondary mt-1">Mumbai, Chennai, Singapore, Tokyo, Seoul, Sydney &bull; &lt;
+                    1.5ms Edge</div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded-4 border border-secondary border-opacity-25 bg-dark bg-opacity-25">
+                  <div class="font-mono text-info fw-bold">Middle East &amp; Africa (4 PoPs)</div>
+                  <div class="small text-secondary mt-1">Dubai, Riyadh, Tel Aviv, Johannesburg &bull; &lt; 1.8ms Edge
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="pricing.html#support-contact" class="btn-cp-primary">
+              Schedule a Custom Network Topology Review <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER (IDENTICAL ACROSS ALL 4 PAGES)
+       ======================================================================== -->
+  <footer class="cp-footer">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-4">
+          <a href="index.html" class="cp-brand mb-3">
+            <span class="cp-brand-mark"><i class="bi bi-cloud-lightning-fill"></i></span>
+            <span class="cp-brand-text">Cloud<span>Pilot</span></span>
+          </a>
+          <p class="small mb-3">
+            Enterprise cloud infrastructure, bare-metal compute, NVMe-oF storage, and zero-trust security engineered for
+            mission-critical software teams across 42 global availability zones.
+          </p>
+          <div class="d-flex align-items-center gap-2">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="cp-social-btn"
+              aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="cp-social-btn"
+              aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="cp-social-btn"
+              aria-label="X Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="cp-social-btn"
+              aria-label="Discord"><i class="bi bi-discord"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h3 class="h6 text-white mb-3">Platform</h3>
+          <ul class="cp-footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right small"></i> Home Overview</a></li>
+            <li><a href="services.html"><i class="bi bi-chevron-right small"></i> Cloud Services</a></li>
+            <li><a href="infrastructure.html"><i class="bi bi-chevron-right small"></i> Architecture</a></li>
+            <li><a href="pricing.html"><i class="bi bi-chevron-right small"></i> Pricing &amp; SLA</a></li>
+            <li><a href="index.html#live-monitoring"><i class="bi bi-chevron-right small"></i> Live Telemetry</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h3 class="h6 text-white mb-3">Cloud Services</h3>
+          <ul class="cp-footer-links">
+            <li><a href="services.html#service-compute"><i class="bi bi-chevron-right small"></i> Elastic Cloud
+                Compute</a></li>
+            <li><a href="services.html#service-storage"><i class="bi bi-chevron-right small"></i> NVMe Object &amp;
+                Block Storage</a></li>
+            <li><a href="services.html#service-database"><i class="bi bi-chevron-right small"></i> Managed SQL &amp;
+                Redis</a></li>
+            <li><a href="services.html#service-devops"><i class="bi bi-chevron-right small"></i> Managed Kubernetes
+                (K8s)</a></li>
+            <li><a href="services.html#service-backup"><i class="bi bi-chevron-right small"></i> Disaster Recovery &amp;
+                Backup</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+          <h3 class="h6 text-white mb-3">24/7 NOC &amp; Support</h3>
+          <ul class="cp-footer-links mb-3">
+            <li><a href="pricing.html#support-contact"><i class="bi bi-headset text-info"></i> Enterprise Support
+                Desk</a></li>
+            <li><a href="infrastructure.html#migration-timeline"><i class="bi bi-arrow-left-right text-info"></i> Cloud
+                Migration Team</a></li>
+            <li><a href="mailto:noc@cloudpilot.io"><i class="bi bi-envelope text-info"></i> noc@cloudpilot.io</a></li>
+          </ul>
+          <div
+            class="p-2 px-3 rounded-3 border border-success border-opacity-50 bg-success bg-opacity-10 d-inline-flex align-items-center gap-2">
+            <span class="rounded-circle bg-success" style="width:8px;height:8px;"></span>
+            <span class="font-mono small text-success">All 42 Regions Operational</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="pt-4 d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small text-secondary">
+        <div>&copy; 2026 CloudPilot Technologies Inc. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="infrastructure.html#security-compliance" class="text-secondary">Security &amp; Compliance</a>
+          <a href="pricing.html#support-contact" class="text-secondary">SLA Terms</a>
+          <a href="pricing.html" class="text-secondary">Sample Pricing Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="cp-back-to-top" id="cpBackToTop" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Cloud Console Login / Provision Modal -->
+  <div class="modal fade" id="cpConsoleModal" tabindex="-1" aria-labelledby="cpConsoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content cp-card border-info" style="background: var(--cp-bg-glass-strong);">
+        <div class="modal-header border-bottom border-secondary border-opacity-25 pb-3">
+          <h2 class="modal-title h5 text-white d-flex align-items-center gap-2" id="cpConsoleModalLabel">
+            <i class="bi bi-terminal-fill text-info"></i> CloudPilot Control Plane Access
+          </h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-3">
+          <form class="cp-needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="modalEmailInf" class="cp-form-label">Work Email / IAM Principal</label>
+              <input type="email" id="modalEmailInf" name="fullName" class="cp-form-control"
+                placeholder="architect@company.com" required />
+              <div class="cp-invalid-feedback">Please enter a valid enterprise email address.</div>
+            </div>
+            <div class="mb-3">
+              <label for="modalRegionInf" class="cp-form-label">Primary Control Plane Region</label>
+              <select id="modalRegionInf" name="plan" class="cp-form-control" required>
+                <option value="us-east-1 (N. Virginia)">us-east-1 (N. Virginia)</option>
+                <option value="eu-central-1 (Frankfurt)">eu-central-1 (Frankfurt)</option>
+                <option value="ap-south-1 (Mumbai)">ap-south-1 (Mumbai)</option>
+                <option value="ap-northeast-1 (Tokyo)">ap-northeast-1 (Tokyo)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="modalTokenInf" class="cp-form-label">Password or SSO Passkey</label>
+              <input type="password" id="modalTokenInf" class="cp-form-control" minlength="6" placeholder="••••••••••••"
+                required />
+              <div class="cp-invalid-feedback">Please enter at least 6 characters.</div>
+            </div>
+            <button type="submit" class="btn-cp-primary w-100">
+              <i class="bi bi-shield-lock"></i> Verify Credentials (Demo Preview)
+            </button>
+            <div class="cp-form-status" hidden></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle & CloudPilot Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>

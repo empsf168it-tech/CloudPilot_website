@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CloudPilot Cloud Services — Elastic Cloud Computing, NVMe Hosting, Object Storage, Managed Databases, Dedicated VMs, Disaster Recovery, Kubernetes DevOps & Real-Time Monitoring." />
+  <title>Cloud Services | CloudPilot Enterprise Infrastructure</title>
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 CSS & Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- CloudPilot Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ========================================================================
+       STICKY HEADER (IDENTICAL ACROSS ALL 4 PAGES)
+       ======================================================================== -->
+  <header class="cp-header">
+    <div class="container">
+      <nav class="cp-navbar" aria-label="Primary Navigation">
+        <a href="index.html" class="cp-brand">
+          <span class="cp-brand-mark"><i class="bi bi-cloud-lightning-fill"></i></span>
+          <span class="cp-brand-text">Cloud<span>Pilot</span></span>
+        </a>
+
+        <div class="cp-nav-collapse" id="cpNavCollapse">
+          <ul class="cp-nav-menu">
+            <li><a href="index.html" class="cp-nav-link"><i class="bi bi-grid-1x2"></i> Home</a></li>
+            <li><a href="services.html" class="cp-nav-link active"><i class="bi bi-cpu"></i> Services</a></li>
+            <li><a href="infrastructure.html" class="cp-nav-link"><i class="bi bi-diagram-3"></i> Infrastructure</a></li>
+            <li><a href="pricing.html" class="cp-nav-link"><i class="bi bi-shield-check"></i> Pricing &amp; Support</a></li>
+          </ul>
+          <div class="d-lg-none mt-3 pt-3 border-top border-secondary border-opacity-25 d-flex flex-column gap-2">
+            <button type="button" class="btn-cp-secondary w-100" data-bs-toggle="modal" data-bs-target="#cpConsoleModal">
+              <i class="bi bi-terminal"></i> Console Login
+            </button>
+            <a href="pricing.html#support-contact" class="btn-cp-primary w-100">
+              <i class="bi bi-rocket-takeoff"></i> Get Started
+            </a>
+          </div>
+        </div>
+
+        <div class="cp-nav-actions">
+          <button type="button" class="cp-theme-toggle" data-theme-toggle aria-label="Switch theme">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn-cp-secondary btn-cp-sm d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#cpConsoleModal">
+            Log In
+          </button>
+          <a href="pricing.html" class="btn-cp-primary btn-cp-sm d-none d-lg-inline-flex">
+            Get Started <i class="bi bi-arrow-right"></i>
+          </a>
+          <button type="button" class="cp-mobile-toggle" id="cpMobileToggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="cpNavCollapse">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         SERVICES HERO SECTION (VIEWPORT-FITTED HIGH-LEVEL 2-COLUMN STAGE)
+         ====================================================================== -->
+    <section class="cp-hero">
+      <div class="cp-hero-glow-1"></div>
+      <div class="cp-hero-glow-2"></div>
+
+      <div class="container position-relative my-auto">
+        <div class="row align-items-center g-4">
+          <!-- Left Column: Eyebrow, Heading, Subtitle, CTAs & 4 Service Pillars -->
+          <div class="col-lg-6 reveal-up">
+            <div class="eyebrow-badge">
+              <i class="bi bi-cpu-fill text-info"></i>
+              <span>8 Production-Grade Cloud Primitives &amp; DevOps Tools</span>
+            </div>
+
+            <h1 class="display-hero mb-3">
+              Modular, High-Speed<br />
+              Cloud Services Built for<br />
+              <span class="text-gradient">Extreme Throughput</span>
+            </h1>
+
+            <p class="section-subtitle mb-4">
+              From custom silicon cloud computing and S3-compatible NVMe storage to autonomous SQL databases, Kubernetes orchestration, and instant disaster recovery.
+            </p>
+
+            <!-- Primary & Secondary CTAs -->
+            <div class="d-flex flex-wrap align-items-center gap-3 cp-hero-cta-group">
+              <a href="#service-compute" class="btn-cp-primary">
+                <span>Explore All 8 Services</span> <i class="bi bi-arrow-down-right"></i>
+              </a>
+              <a href="pricing.html#estimator" class="btn-cp-secondary">
+                <i class="bi bi-calculator text-info"></i> <span>Estimate Cluster Cost</span>
+              </a>
+            </div>
+
+            <!-- 4-Column Service Benchmark Strip -->
+            <div class="cp-hero-pillars">
+              <div class="cp-pillar-item">
+                <i class="bi bi-cpu cp-pillar-icon"></i>
+                <div class="cp-pillar-title">3.9 GHz Compute</div>
+                <div class="cp-pillar-sub">AMD EPYC™ Gen4</div>
+              </div>
+              <div class="cp-pillar-item">
+                <i class="bi bi-device-ssd cp-pillar-icon"></i>
+                <div class="cp-pillar-title">1.2M NVMe IOPS</div>
+                <div class="cp-pillar-sub">11-Nines Durability</div>
+              </div>
+              <div class="cp-pillar-item">
+                <i class="bi bi-boxes cp-pillar-icon"></i>
+                <div class="cp-pillar-title">Managed K8s</div>
+                <div class="cp-pillar-sub">Free Control Plane</div>
+              </div>
+              <div class="cp-pillar-item">
+                <i class="bi bi-shield-shaded cp-pillar-icon"></i>
+                <div class="cp-pillar-title">Instant DR Shield</div>
+                <div class="cp-pillar-sub">RTO &lt; 60 Seconds</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 3D Holographic Cloud Services Core + 4 Floating Cards -->
+          <div class="col-lg-6 reveal-up">
+            <div class="cp-hero-holo-stage">
+              <!-- Floating Card 1: Storage IOPS (Top Left) -->
+              <div class="cp-float-card card-uptime">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-device-ssd-fill text-info small"></i>
+                  <span class="small text-secondary">NVMe Block I/O</span>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <span class="rounded-circle" style="width:9px;height:9px;background:#00C8F0;box-shadow:0 0 8px #00C8F0;"></span>
+                  <span class="h5 fw-bold text-white mb-0 font-mono" data-counter="1.2" data-decimals="1" data-suffix="M IOPS">1.2M IOPS</span>
+                </div>
+                <svg viewBox="0 0 140 34" class="w-100" style="height:28px;">
+                  <defs>
+                    <linearGradient id="srvIoGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#00C8F0" stop-opacity="0.45"/>
+                      <stop offset="100%" stop-color="#087BFF" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M2,26 L24,20 L48,22 L74,12 L102,14 L136,4 L136,32 L2,32 Z" fill="url(#srvIoGrad)"/>
+                  <polyline fill="none" stroke="#20DFFF" stroke-width="2.2" points="2,26 24,20 48,22 74,12 102,14 136,4"/>
+                </svg>
+              </div>
+
+              <!-- Floating Card 2: DR Failover SLA (Bottom Left) -->
+              <div class="cp-float-card card-security">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-shield-fill-check text-info"></i>
+                  <span class="small text-secondary">DR Replication</span>
+                </div>
+                <div class="fw-bold small" style="color:#10D988;">RPO &lt; 15s &bull; Zero Loss</div>
+              </div>
+
+              <!-- Central 3D Holographic Cloud Services Matrix SVG -->
+              <div class="cp-holo-centerpiece">
+                <svg viewBox="0 0 560 440" class="w-100 h-auto" role="img" aria-label="CloudPilot 3D Multi-Service Cloud Computing, Storage, Database and Kubernetes Matrix">
+                  <defs>
+                    <radialGradient id="srvHoloGlow" cx="50%" cy="48%" r="48%">
+                      <stop offset="0%" stop-color="#168BFF" stop-opacity="0.52"/>
+                      <stop offset="55%" stop-color="#00C8F0" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="#06152B" stop-opacity="0"/>
+                    </radialGradient>
+                    <linearGradient id="srvRim" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#70E8FF"/>
+                      <stop offset="50%" stop-color="#00C8F0"/>
+                      <stop offset="100%" stop-color="#087BFF"/>
+                    </linearGradient>
+                    <linearGradient id="srvCloud" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#102F54" stop-opacity="0.94"/>
+                      <stop offset="100%" stop-color="#06152B" stop-opacity="0.96"/>
+                    </linearGradient>
+                    <linearGradient id="srvNode" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#163C6B"/>
+                      <stop offset="100%" stop-color="#081A33"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Ambient Halo -->
+                  <circle cx="280" cy="215" r="205" fill="url(#srvHoloGlow)"/>
+
+                  <!-- Hexagonal Service Interconnect Ring -->
+                  <polygon points="280,52 435,132 435,292 280,372 125,292 125,132" fill="none" stroke="url(#srvRim)" stroke-width="1.8" stroke-dasharray="6 4" stroke-opacity="0.7"/>
+                  <ellipse cx="280" cy="348" rx="170" ry="36" fill="none" stroke="url(#srvRim)" stroke-width="2.5"/>
+                  <ellipse cx="280" cy="356" rx="195" ry="44" fill="none" stroke="#00C8F0" stroke-width="1.2" stroke-opacity="0.45" stroke-dasharray="8 6"/>
+
+                  <!-- Optical Data Beams from Central Cloud Core to Satellite Service Nodes -->
+                  <line x1="280" y1="195" x2="145" y2="140" stroke="#20DFFF" stroke-width="2"/>
+                  <line x1="280" y1="195" x2="415" y2="140" stroke="#20DFFF" stroke-width="2"/>
+                  <line x1="280" y1="225" x2="150" y2="295" stroke="#168BFF" stroke-width="2"/>
+                  <line x1="280" y1="225" x2="410" y2="295" stroke="#168BFF" stroke-width="2"/>
+
+                  <!-- Central Glowing Cloud Orchestrator Core -->
+                  <path d="M185,232 C152,232 132,206 138,176 C142,152 162,135 186,135 C198,98 234,74 278,76 C324,78 360,110 368,152 C392,154 412,174 410,200 C408,220 390,232 368,232 Z"
+                        fill="url(#srvCloud)" stroke="url(#srvRim)" stroke-width="3.5"/>
+                  <text x="276" y="156" text-anchor="middle" fill="#70E8FF" font-family="JetBrains Mono, monospace" font-weight="600" font-size="12">SERVICE MESH CORE</text>
+                  <text x="276" y="182" text-anchor="middle" fill="#F4F8FF" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22">CloudPilot OS</text>
+
+                  <!-- Central Compute & Storage Blades -->
+                  <g transform="translate(216, 206)">
+                    <rect x="0" y="0" width="128" height="120" rx="8" fill="url(#srvNode)" stroke="#20DFFF" stroke-width="2.2"/>
+                    <rect x="14" y="16" width="100" height="12" rx="3" fill="#20DFFF"/>
+                    <rect x="14" y="36" width="100" height="12" rx="3" fill="#087BFF"/>
+                    <rect x="14" y="56" width="100" height="12" rx="3" fill="#00C8F0"/>
+                    <rect x="14" y="76" width="100" height="12" rx="3" fill="#168BFF"/>
+                    <rect x="14" y="96" width="100" height="10" rx="3" fill="#70E8FF"/>
+                  </g>
+
+                  <!-- Satellite Node 1: SQL Database Cylinder (Bottom Left) -->
+                  <g transform="translate(112, 260)">
+                    <rect x="0" y="0" width="72" height="68" rx="10" fill="url(#srvNode)" stroke="#00C8F0" stroke-width="1.8"/>
+                    <ellipse cx="36" cy="20" rx="20" ry="7" fill="none" stroke="#70E8FF" stroke-width="1.8"/>
+                    <path d="M16,20 v22 c0,4 9,7 20,7 s20,-3 20,-7 v-22" fill="none" stroke="#00C8F0" stroke-width="1.8"/>
+                    <text x="36" y="60" text-anchor="middle" fill="#F4F8FF" font-family="JetBrains Mono, monospace" font-size="10">SQL DB</text>
+                  </g>
+
+                  <!-- Satellite Node 2: Kubernetes Helm Node (Bottom Right) -->
+                  <g transform="translate(376, 260)">
+                    <rect x="0" y="0" width="72" height="68" rx="10" fill="url(#srvNode)" stroke="#00C8F0" stroke-width="1.8"/>
+                    <circle cx="36" cy="28" r="14" fill="none" stroke="#70E8FF" stroke-width="2"/>
+                    <circle cx="36" cy="28" r="5" fill="#00C8F0"/>
+                    <text x="36" y="60" text-anchor="middle" fill="#F4F8FF" font-family="JetBrains Mono, monospace" font-size="10">K8S PODS</text>
+                  </g>
+                </svg>
+              </div>
+
+              <!-- Floating Card 3: Managed K8s Pods (Top Right) -->
+              <div class="cp-float-card card-servers">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-boxes text-info"></i>
+                  <div>
+                    <div class="small text-secondary" style="font-size:0.74rem;">Active K8s Clusters</div>
+                    <div class="h5 fw-bold text-white mb-0 font-mono" data-counter="14600" data-decimals="0" data-suffix="+">14,600+</div>
+                  </div>
+                </div>
+                <svg viewBox="0 0 150 28" class="w-100 mt-1" style="height:24px;">
+                  <rect x="4" y="18" width="8" height="10" rx="1.5" fill="#168BFF"/>
+                  <rect x="18" y="15" width="8" height="13" rx="1.5" fill="#168BFF"/>
+                  <rect x="32" y="12" width="8" height="16" rx="1.5" fill="#249EFF"/>
+                  <rect x="46" y="14" width="8" height="14" rx="1.5" fill="#249EFF"/>
+                  <rect x="60" y="10" width="8" height="18" rx="1.5" fill="#00C8F0"/>
+                  <rect x="74" y="8" width="8" height="20" rx="1.5" fill="#00C8F0"/>
+                  <rect x="88" y="6" width="8" height="22" rx="1.5" fill="#20DFFF"/>
+                  <rect x="102" y="9" width="8" height="19" rx="1.5" fill="#20DFFF"/>
+                  <rect x="116" y="4" width="8" height="24" rx="1.5" fill="#70E8FF"/>
+                  <rect x="130" y="2" width="8" height="26" rx="1.5" fill="#70E8FF"/>
+                </svg>
+              </div>
+
+              <!-- Floating Card 4: Database Quorum (Bottom Right) -->
+              <div class="cp-float-card card-regions">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="bi bi-database-fill-check text-info"></i>
+                  <div>
+                    <div class="small text-secondary" style="font-size:0.74rem;">DB Engine SLA</div>
+                    <div class="h6 fw-bold text-white mb-0 font-mono">Multi-AZ Sync</div>
+                  </div>
+                </div>
+                <div class="small text-info font-mono mt-1">PostgreSQL &bull; MySQL &bull; Redis</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Viewport Bar: Interactive 8-Service Quick Jump Matrix -->
+        <div class="cp-hero-trust-bar reveal-up" role="navigation" aria-label="Service Quick Jump">
+          <div class="cp-trust-label"><i class="bi bi-grid-fill text-info me-1"></i> Jump to Service:</div>
+          <div class="cp-service-nav-pills justify-content-start flex-grow-1">
+            <a href="#service-compute" class="cp-service-pill active" data-service-jump><i class="bi bi-cpu me-1"></i>1. Compute</a>
+            <a href="#service-hosting" class="cp-service-pill" data-service-jump><i class="bi bi-globe me-1"></i>2. Hosting</a>
+            <a href="#service-storage" class="cp-service-pill" data-service-jump><i class="bi bi-folder-check me-1"></i>3. Storage</a>
+            <a href="#service-database" class="cp-service-pill" data-service-jump><i class="bi bi-database me-1"></i>4. Databases</a>
+            <a href="#service-vms" class="cp-service-pill" data-service-jump><i class="bi bi-hdd-stack me-1"></i>5. VMs</a>
+            <a href="#service-backup" class="cp-service-pill" data-service-jump><i class="bi bi-fire me-1"></i>6. Backup &amp; DR</a>
+            <a href="#service-devops" class="cp-service-pill" data-service-jump><i class="bi bi-boxes me-1"></i>7. DevOps &amp; K8s</a>
+            <a href="#service-monitoring" class="cp-service-pill" data-service-jump><i class="bi bi-activity me-1"></i>8. Monitoring</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         LAYOUT 1: SPLIT ARCHITECTURAL SHOWCASE
+         SERVICE 01: CLOUD COMPUTING (Uses Image 16: assets/images/16.jpg)
+         ====================================================================== -->
+    <section class="cp-section" id="service-compute">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 reveal-up">
+            <div class="cp-visual-frame">
+              <img src="assets/images/16.jpg" alt="CloudPilot Cloud Computing Silicon Processor with 3D Cloud Core and Interconnected Compute Towers on Circuit Fabric" loading="lazy" />
+              <div class="cp-visual-overlay-badge">
+                <div>
+                  <div class="font-mono small text-info">CUSTOM SILICON COMPUTE FABRIC</div>
+                  <div class="small fw-semibold">3.9 GHz All-Core Turbo &bull; PCIe Gen5 Interconnect</div>
+                </div>
+                <span class="badge bg-primary font-mono">01 // COMPUTE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 reveal-up">
+            <div class="eyebrow-badge">
+              <span class="pulse-dot"></span>
+              <span>SERVICE 01 // CLOUD COMPUTING</span>
+            </div>
+            <h2 class="section-title">
+              Elastic High-Frequency Compute &amp; Custom Silicon Acceleration
+            </h2>
+            <p class="mb-4">
+              Power latency-sensitive microservices, financial matching engines, and AI inference pipelines with bare-metal speed and instant cloud elasticity. Our compute plane links directly to high-speed processor buses with zero noisy-neighbor contention.
+            </p>
+
+            <div class="row g-3 mb-4">
+              <div class="col-sm-6">
+                <div class="p-3 rounded-4 border border-secondary border-opacity-25 bg-dark bg-opacity-25 h-100">
+                  <div class="font-mono text-info fw-bold mb-1">AMD EPYC™ Genoa &amp; Bergamo</div>
+                  <p class="small mb-0">Dedicated physical L3 cache allocation and AVX-512 vector acceleration for compute-heavy workloads.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded-4 border border-secondary border-opacity-25 bg-dark bg-opacity-25 h-100">
+                  <div class="font-mono text-info fw-bold mb-1">Millisecond Auto-Scaling</div>
+                  <p class="small mb-0">Scale horizontally from 2 to 2,000 compute nodes automatically based on CPU, queue depth, or custom Prometheus metrics.</p>
+                </div>
+              </div>
+            </div>
+
+            <ul class="cp-spec-list mb-4">
+              <li><i class="bi bi-check-circle-fill"></i> <strong>Compute Tiers:</strong> General Purpose (C4), Memory Optimized (M4 up to 2TB RAM), and GPU/AI Accelerated Nodes</li>
+              <li><i class="bi bi-check-circle-fill"></i> <strong>Network Fabric:</strong> Up to 100Gbps dedicated SR-IOV network interface per instance</li>
+              <li><i class="bi bi-check-circle-fill"></i> <strong>Billing Granularity:</strong> Per-second metering with automated sustained-use discounts</li>
+            </ul>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a href="pricing.html" class="btn-cp-primary">Deploy Compute Instance <i class="bi bi-arrow-right"></i></a>
+              <a href="infrastructure.html" class="btn-cp-secondary">Hardware Benchmarks</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         LAYOUT 2: ASYMMETRIC BENTO DUAL-SHOWCASE
+         SERVICE 02: CLOUD HOSTING (Uses Image 9: assets/images/9.jpg)
+         SERVICE 03: CLOUD STORAGE (Uses Image 15: assets/images/15.jpg)
+         ====================================================================== -->
+    <section class="cp-section cp-section-alt">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <!-- SERVICE 02: CLOUD HOSTING -->
+          <div class="col-lg-6 reveal-up" id="service-hosting">
+            <div class="cp-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="eyebrow-badge mb-0"><span class="pulse-dot"></span> SERVICE 02 // CLOUD HOSTING</span>
+                <span class="font-mono small text-info">HTTP/3 + QUIC</span>
+              </div>
+              <h2 class="h3 mb-3">Multi-Region Managed Cloud Hosting &amp; Edge Delivery</h2>
+              <p class="mb-4">
+                Host high-traffic SaaS web applications, e-commerce storefronts, and global APIs on auto-healing server clusters connected directly to client laptops, mobile devices, and regional edge caches.
+              </p>
+
+              <div class="cp-visual-frame mb-4">
+                <img src="assets/images/9.jpg" alt="CloudPilot Isometric Multi-Device Cloud Hosting Topology Connecting Central Server Clusters to Client Endpoints and Edge Clouds" loading="lazy" />
+              </div>
+
+              <div class="row g-2 mb-4">
+                <div class="col-sm-6">
+                  <div class="p-2 px-3 rounded-3 border border-secondary border-opacity-25 small">
+                    <i class="bi bi-lightning-fill text-info me-1"></i> <strong>Instant Edge Caching:</strong> 42 Anycast PoPs
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-2 px-3 rounded-3 border border-secondary border-opacity-25 small">
+                    <i class="bi bi-lock-fill text-info me-1"></i> <strong>Zero-Config TLS 1.3:</strong> Auto-renewing certs
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-2 px-3 rounded-3 border border-secondary border-opacity-25 small">
+                    <i class="bi bi-git text-info me-1"></i> <strong>Zero-Downtime Deploys:</strong> Atomic blue/green
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-2 px-3 rounded-3 border border-secondary border-opacity-25 small">
+                    <i class="bi bi-shield-check text-info me-1"></i> <strong>Managed WAF:</strong> OWASP Top-10 protection
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-auto">
+                <a href="pricing.html" class="btn-cp-primary w-100">Launch Managed Cloud Hosting <i class="bi bi-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVICE 03: CLOUD STORAGE -->
+          <div class="col-lg-6 reveal-up" id="service-storage">
+            <div class="cp-card">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="eyebrow-badge mb-0"><span class="pulse-dot"></span> SERVICE 03 // CLOUD STORAGE</span>
+                <span class="font-mono small text-info">11-NINES DURABILITY</span>
+              </div>
+              <h2 class="h3 mb-3">Hierarchical Object, Block &amp; File Cloud Storage</h2>
+              <p class="mb-4">
+                Organize petabytes of structured and unstructured enterprise data across S3-compatible object buckets, POSIX shared file systems, and ultra-fast NVMe block volumes with intelligent lifecycle tiering.
+              </p>
+
+              <div class="cp-visual-frame mb-4">
+                <img src="assets/images/15.jpg" alt="CloudPilot Cloud Storage Architecture Showing Central Upload Cloud Routing to Organized Multi-Tiered Folders and Document Nodes" loading="lazy" />
+              </div>
+
+              <div class="row g-2 mb-4">
+                <div class="col-sm-6">
+                  <div class="p-2 px-3 rounded-3 border border-secondary border-opacity-25 small">
+                    <i class="bi bi-hdd-fill text-info me-1"></i> <strong>NVMe Block Volumes:</strong> Up to 1.2M IOPS
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-2 px-3 rounded-3 border border-secondary border-opacity-25 small">
+                    <i class="bi bi-bucket-fill text-info me-1"></i> <strong>100% S3 Compatible:</strong> Drop-in SDK support
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-2 px-3 rounded-3 border border-secondary border-opacity-25 small">
+                    <i class="bi bi-file-earmark-lock2-fill text-info me-1"></i> <strong>Object Lock (WORM):</strong> Ransomware-proof
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-2 px-3 rounded-3 border border-secondary border-opacity-25 small">
+                    <i class="bi bi-arrows-angle-contract text-info me-1"></i> <strong>Auto-Tiering:</strong> Hot NVMe to Cold Archive
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-auto">
+                <a href="pricing.html#estimator" class="btn-cp-secondary w-100">Calculate Storage Cost <i class="bi bi-calculator"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         LAYOUT 3: FULL-WIDTH ENGINEERING DECK
+         SERVICE 04: DATABASE MANAGEMENT (Uses Image 17: assets/images/17.jpg)
+         ====================================================================== -->
+    <section class="cp-section" id="service-database">
+      <div class="container">
+        <div class="cp-dashboard-shell reveal-up">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6 order-lg-2">
+              <div class="cp-visual-frame">
+                <img src="assets/images/17.jpg" alt="CloudPilot Database Management Infrastructure Showing 4-Bay Rack Server Connected via Optical Fiber to Switches, Cylindrical SQL Storage, Cloud Node, and Cryptographic Vault" loading="lazy" />
+                <div class="cp-visual-overlay-badge">
+                  <div>
+                    <div class="font-mono small text-info">HIGH-AVAILABILITY DB ENGINE</div>
+                    <div class="small fw-semibold">Synchronous Raft Quorum &bull; Hardware Vault Encrypted</div>
+                  </div>
+                  <span class="badge bg-info text-dark font-mono">RPO = 0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 order-lg-1">
+              <div class="eyebrow-badge">
+                <span class="pulse-dot"></span>
+                <span>SERVICE 04 // DATABASE MANAGEMENT</span>
+              </div>
+              <h2 class="section-title text-white">
+                Autonomous Managed Databases with Zero-Loss Failover
+              </h2>
+              <p class="mb-4">
+                Eliminate database administration overhead. CloudPilot provisions dedicated multi-bay compute racks linked over low-latency optical fiber to cylindrical NVMe storage arrays, redundant network switches, and hardware encryption vaults.
+              </p>
+
+              <!-- Supported Engines Pills -->
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="cp-node-pill"><i class="bi bi-database-check text-info"></i> PostgreSQL 16 (PgBouncer + pgvector)</span>
+                <span class="cp-node-pill"><i class="bi bi-database-fill text-info"></i> MySQL 8.4 Enterprise</span>
+                <span class="cp-node-pill"><i class="bi bi-lightning-charge text-info"></i> Redis / Valkey In-Memory</span>
+                <span class="cp-node-pill"><i class="bi bi-diagram-2 text-info"></i> Distributed CloudSQL</span>
+              </div>
+
+              <div class="row g-3 mb-4">
+                <div class="col-sm-4">
+                  <div class="cp-metric-tile">
+                    <div class="font-mono text-info fw-bold h5 mb-1">&lt; 3.5 sec</div>
+                    <div class="small text-secondary">Automated Replica Promotion</div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="cp-metric-tile">
+                    <div class="font-mono text-info fw-bold h5 mb-1">1-Sec PITR</div>
+                    <div class="small text-secondary">Continuous WAL Point-in-Time Restore</div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="cp-metric-tile">
+                    <div class="font-mono text-info fw-bold h5 mb-1">Up to 15</div>
+                    <div class="small text-secondary">Global Read-Replicas per Cluster</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-3">
+                <a href="pricing.html" class="btn-cp-primary">Provision Managed Database</a>
+                <a href="index.html#live-monitoring" class="btn-cp-secondary">View Slow-Query Profiler</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         LAYOUT 4: ARCHITECTURAL COMPARISON SPLIT
+         SERVICE 05: VIRTUAL MACHINES (Uses Image 10: assets/images/10.jpg)
+         SERVICE 06: BACKUP & RECOVERY (Uses Image 18: assets/images/18.jpg)
+         ====================================================================== -->
+    <section class="cp-section cp-section-alt">
+      <div class="container">
+        <!-- SERVICE 05: VIRTUAL MACHINES -->
+        <div class="row align-items-center g-4 g-lg-5 mb-5 pb-lg-4 border-bottom border-secondary border-opacity-25" id="service-vms">
+          <div class="col-lg-5 reveal-up">
+            <div class="cp-visual-frame">
+              <img src="assets/images/10.jpg" alt="CloudPilot Isometric Virtual Machine Topology Showing Central Cloud Controller Orchestrating 6 Isolated Compute Hypervisor Nodes" loading="lazy" />
+              <div class="cp-visual-overlay-badge">
+                <div>
+                  <div class="font-mono small text-info">KVM HYPERVISOR ISOLATION</div>
+                  <div class="small fw-semibold">6-Way Multi-AZ Node Topology</div>
+                </div>
+                <span class="badge bg-primary font-mono">05 // VMs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 reveal-up">
+            <div class="eyebrow-badge">
+              <span class="pulse-dot"></span>
+              <span>SERVICE 05 // VIRTUAL MACHINES</span>
+            </div>
+            <h2 class="section-title">
+              Dedicated KVM Virtual Machines with Sub-Second Cold Boot
+            </h2>
+            <p class="mb-4">
+              Deploy isolated virtual machines across our hexagonal multi-node hypervisor mesh. Each VM receives pinned physical CPU cores, dedicated NUMA memory channels, and custom ISO/cloud-init support.
+            </p>
+
+            <div class="cp-table-wrap mb-4">
+              <table class="cp-comparison-table" style="min-width: 520px;">
+                <thead>
+                  <tr>
+                    <th>VM Instance Class</th>
+                    <th>vCPU / RAM Ratio</th>
+                    <th>Local NVMe</th>
+                    <th>Ideal Workload</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-white fw-semibold font-mono">cp.standard-4x</td>
+                    <td>1 : 4 GB DDR5</td>
+                    <td>Up to 4 TB</td>
+                    <td>Production APIs, Web Servers, CI Runners</td>
+                  </tr>
+                  <tr>
+                    <td class="text-white fw-semibold font-mono">cp.compute-8x</td>
+                    <td>1 : 2 GB (3.9GHz)</td>
+                    <td>Up to 8 TB</td>
+                    <td>Video Encoding, High-Frequency Trading, Gaming</td>
+                  </tr>
+                  <tr>
+                    <td class="text-white fw-semibold font-mono">cp.memory-16x</td>
+                    <td>1 : 16 GB ECC</td>
+                    <td>Up to 16 TB</td>
+                    <td>In-Memory Caches, SAP HANA, Graph Analytics</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <a href="pricing.html" class="btn-cp-primary">Configure Virtual Machine <i class="bi bi-sliders"></i></a>
+          </div>
+        </div>
+
+        <!-- SERVICE 06: BACKUP & DISASTER RECOVERY -->
+        <div class="row align-items-center g-4 g-lg-5 pt-2" id="service-backup">
+          <div class="col-lg-6 order-lg-2 reveal-up">
+            <div class="cp-visual-frame">
+              <img src="assets/images/18.jpg" alt="CloudPilot DR SERVICE Illustration Showing Failing Burning Servers on Left Blocked by Security Shield and Failing Over to Healthy Protected Blue Cloud Servers on Right" loading="lazy" />
+              <div class="cp-visual-overlay-badge">
+                <div>
+                  <div class="font-mono small text-info">AUTOMATED DR SERVICE SHIELD</div>
+                  <div class="small fw-semibold">Instant Outage Isolation &amp; Clean-Room Recovery</div>
+                </div>
+                <span class="badge bg-danger font-mono">RTO &lt; 60s</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 order-lg-1 reveal-up">
+            <div class="eyebrow-badge">
+              <span class="pulse-dot"></span>
+              <span>SERVICE 06 // BACKUP &amp; DISASTER RECOVERY</span>
+            </div>
+            <h2 class="section-title">
+              Automated Disaster Recovery (DR Service) &amp; Immutable Backups
+            </h2>
+            <p class="mb-4">
+              Hardware fires, ransomware attacks, or regional power grid failures never take your business offline. CloudPilot’s automated <strong>DR Service</strong> places an active cryptographic shield between primary incidents and your standby recovery cluster.
+            </p>
+
+            <div class="row g-3 mb-4">
+              <div class="col-sm-6">
+                <div class="cp-card p-3">
+                  <div class="d-flex align-items-center gap-2 mb-2 text-info">
+                    <i class="bi bi-shield-fill-exclamation fs-5"></i>
+                    <h3 class="h6 mb-0">Blast-Radius Containment</h3>
+                  </div>
+                  <p class="small mb-0">Anomalous encryption or hardware faults trigger instant circuit-breaker isolation so corrupted blocks never replicate.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="cp-card p-3">
+                  <div class="d-flex align-items-center gap-2 mb-2 text-info">
+                    <i class="bi bi-arrow-repeat fs-5"></i>
+                    <h3 class="h6 mb-0">1-Click Warm Standby</h3>
+                  </div>
+                  <p class="small mb-0">Fail over entire multi-tier VPC topologies to a secondary continent in under 60 seconds with automated BGP rerouting.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="infrastructure.html#security-compliance" class="btn-cp-primary">Explore DR Architecture <i class="bi bi-shield-shaded"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         LAYOUT 5: KUBERNETES & DEVOPS + SERVER MONITORING SHOWCASE
+         SERVICE 07: DEVOPS & DEPLOYMENT (Uses Image 19: assets/images/19.jpg)
+         SERVICE 08: SERVER MONITORING (Uses Image 11: assets/images/11.jpg)
+         ====================================================================== -->
+    <section class="cp-section">
+      <div class="container">
+        <!-- SERVICE 07: DEVOPS & DEPLOYMENT -->
+        <div class="row align-items-center g-4 g-lg-5 mb-5 pb-lg-5 border-bottom border-secondary border-opacity-25" id="service-devops">
+          <div class="col-lg-6 reveal-up">
+            <div class="cp-visual-frame">
+              <img src="assets/images/19.jpg" alt="CloudPilot Managed Kubernetes and DevOps Control Plane with Central Kubernetes Helm Icon Surrounded by Server Clusters and Engineers" loading="lazy" />
+              <div class="cp-visual-overlay-badge">
+                <div>
+                  <div class="font-mono small text-info">CNCF-CERTIFIED KUBERNETES ENGINE</div>
+                  <div class="small fw-semibold">Cilium eBPF Networking &bull; GitOps Ready</div>
+                </div>
+                <span class="badge bg-primary font-mono">K8S v1.31</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 reveal-up">
+            <div class="eyebrow-badge">
+              <span class="pulse-dot"></span>
+              <span>SERVICE 07 // DEVOPS &amp; DEPLOYMENT</span>
+            </div>
+            <h2 class="section-title">
+              Managed Kubernetes (CPKE) &amp; Automated GitOps Pipelines
+            </h2>
+            <p class="mb-4">
+              Ship code faster with zero control-plane management fees. CloudPilot Kubernetes Engine (CPKE) automates master node upgrades, horizontal pod autoscaling, container vulnerability scanning, and canary traffic splitting.
+            </p>
+
+            <ul class="cp-spec-list mb-4">
+              <li><i class="bi bi-check2-all"></i> <strong>Zero-Cost HA Control Plane:</strong> Triple-master etcd quorum across 3 availability zones included free</li>
+              <li><i class="bi bi-check2-all"></i> <strong>Cilium eBPF Service Mesh:</strong> Kernel-level packet routing without sidecar proxy memory overhead</li>
+              <li><i class="bi bi-check2-all"></i> <strong>Integrated Container Registry:</strong> Geo-replicated OCI registry with automatic Trivy CVE scanning</li>
+              <li><i class="bi bi-check2-all"></i> <strong>Infrastructure as Code:</strong> Native Terraform provider, Helm v3, ArgoCD, and GitHub Actions runners</li>
+            </ul>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a href="pricing.html" class="btn-cp-primary"><i class="bi bi-boxes"></i> Launch K8s Cluster</a>
+              <a href="infrastructure.html#architecture-diagram" class="btn-cp-secondary">Inspect Service Mesh</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 08: SERVER MONITORING -->
+        <div class="row align-items-center g-4 g-lg-5 pt-2" id="service-monitoring">
+          <div class="col-lg-6 order-lg-2 reveal-up">
+            <div class="cp-visual-frame">
+              <img src="assets/images/11.jpg" alt="CloudPilot Server Monitoring Dashboard Showing CPU Usage 45% and 62%, 99.9% Current Uptime, Server Status Online/Warning/Critical, Disk Usage, Network Traffic, Data Transfer 120ms, and Security Alerts" loading="lazy" />
+              <div class="cp-visual-overlay-badge">
+                <div>
+                  <div class="font-mono small text-info">FULL-STACK TELEMETRY ENGINE</div>
+                  <div class="small fw-semibold">99.9%+ Uptime Tracking &bull; 120ms Avg Transfer</div>
+                </div>
+                <span class="badge bg-success font-mono">REAL-TIME</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 order-lg-1 reveal-up">
+            <div class="eyebrow-badge">
+              <span class="pulse-dot"></span>
+              <span>SERVICE 08 // SERVER MONITORING</span>
+            </div>
+            <h2 class="section-title">
+              360&deg; Server Monitoring, Network Telemetry &amp; Threat Alerting
+            </h2>
+            <p class="mb-4">
+              Gain complete visibility into every compute node and storage volume. Our unified observability console tracks dual-socket CPU load (45% / 62%), real-time disk usage histograms, inbound/outbound data transfer (avg 120ms), response times, and proactive security threat alerts.
+            </p>
+
+            <div class="row g-3 mb-4">
+              <div class="col-6">
+                <div class="p-3 rounded-4 border border-secondary border-opacity-25 bg-dark bg-opacity-25">
+                  <div class="font-mono text-info fw-bold">Server Status Matrix</div>
+                  <div class="small text-secondary mt-1">Instant classification of Online, Warning, and Critical fleet states.</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded-4 border border-secondary border-opacity-25 bg-dark bg-opacity-25">
+                  <div class="font-mono text-info fw-bold">Smart Alert Triage</div>
+                  <div class="small text-secondary mt-1">Automated remediation for Security Threats, High CPU Load &amp; Disk Space Low.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a href="index.html#live-monitoring" class="btn-cp-primary"><i class="bi bi-activity"></i> Try Interactive Dashboard</a>
+              <a href="pricing.html#support-contact" class="btn-cp-secondary">Request Custom Telemetry Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         FINAL SERVICES CTA BANNER
+         ====================================================================== -->
+    <section class="cp-section pt-0">
+      <div class="container">
+        <div class="cp-dashboard-shell text-center p-4 p-md-5 reveal-up">
+          <div class="eyebrow-badge mx-auto">
+            <span class="pulse-dot"></span>
+            <span>CUSTOM SOLUTIONS ARCHITECTURE</span>
+          </div>
+          <h2 class="section-title mx-auto" style="max-width: 700px;">
+            Need a Tailored Combination of Bare-Metal, Kubernetes &amp; Managed Databases?
+          </h2>
+          <p class="section-subtitle mx-auto mb-4">
+            Our solutions architects will design a high-availability topology matched to your exact throughput, compliance, and budget requirements.
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="pricing.html" class="btn-cp-primary"><i class="bi bi-tag-fill"></i> Compare Service Pricing</a>
+            <a href="infrastructure.html" class="btn-cp-secondary"><i class="bi bi-diagram-3-fill"></i> Explore Cloud Architecture</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER (IDENTICAL ACROSS ALL 4 PAGES)
+       ======================================================================== -->
+  <footer class="cp-footer">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-lg-4">
+          <a href="index.html" class="cp-brand mb-3">
+            <span class="cp-brand-mark"><i class="bi bi-cloud-lightning-fill"></i></span>
+            <span class="cp-brand-text">Cloud<span>Pilot</span></span>
+          </a>
+          <p class="small mb-3">
+            Enterprise cloud infrastructure, bare-metal compute, NVMe-oF storage, and zero-trust security engineered for mission-critical software teams across 42 global availability zones.
+          </p>
+          <div class="d-flex align-items-center gap-2">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="cp-social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="cp-social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="cp-social-btn" aria-label="X Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="cp-social-btn" aria-label="Discord"><i class="bi bi-discord"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h3 class="h6 text-white mb-3">Platform</h3>
+          <ul class="cp-footer-links">
+            <li><a href="index.html"><i class="bi bi-chevron-right small"></i> Home Overview</a></li>
+            <li><a href="services.html"><i class="bi bi-chevron-right small"></i> Cloud Services</a></li>
+            <li><a href="infrastructure.html"><i class="bi bi-chevron-right small"></i> Architecture</a></li>
+            <li><a href="pricing.html"><i class="bi bi-chevron-right small"></i> Pricing &amp; SLA</a></li>
+            <li><a href="index.html#live-monitoring"><i class="bi bi-chevron-right small"></i> Live Telemetry</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h3 class="h6 text-white mb-3">Cloud Services</h3>
+          <ul class="cp-footer-links">
+            <li><a href="services.html#service-compute"><i class="bi bi-chevron-right small"></i> Elastic Cloud Compute</a></li>
+            <li><a href="services.html#service-storage"><i class="bi bi-chevron-right small"></i> NVMe Object &amp; Block Storage</a></li>
+            <li><a href="services.html#service-database"><i class="bi bi-chevron-right small"></i> Managed SQL &amp; Redis</a></li>
+            <li><a href="services.html#service-devops"><i class="bi bi-chevron-right small"></i> Managed Kubernetes (K8s)</a></li>
+            <li><a href="services.html#service-backup"><i class="bi bi-chevron-right small"></i> Disaster Recovery &amp; Backup</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+          <h3 class="h6 text-white mb-3">24/7 NOC &amp; Support</h3>
+          <ul class="cp-footer-links mb-3">
+            <li><a href="pricing.html#support-contact"><i class="bi bi-headset text-info"></i> Enterprise Support Desk</a></li>
+            <li><a href="infrastructure.html#migration-timeline"><i class="bi bi-arrow-left-right text-info"></i> Cloud Migration Team</a></li>
+            <li><a href="mailto:noc@cloudpilot.io"><i class="bi bi-envelope text-info"></i> noc@cloudpilot.io</a></li>
+          </ul>
+          <div class="p-2 px-3 rounded-3 border border-success border-opacity-50 bg-success bg-opacity-10 d-inline-flex align-items-center gap-2">
+            <span class="rounded-circle bg-success" style="width:8px;height:8px;"></span>
+            <span class="font-mono small text-success">All 42 Regions Operational</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4 d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small text-secondary">
+        <div>&copy; 2026 CloudPilot Technologies Inc. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="infrastructure.html#security-compliance" class="text-secondary">Security &amp; Compliance</a>
+          <a href="pricing.html#support-contact" class="text-secondary">SLA Terms</a>
+          <a href="pricing.html" class="text-secondary">Sample Pricing Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="cp-back-to-top" id="cpBackToTop" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Cloud Console Login / Provision Modal -->
+  <div class="modal fade" id="cpConsoleModal" tabindex="-1" aria-labelledby="cpConsoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content cp-card border-info" style="background: var(--cp-bg-glass-strong);">
+        <div class="modal-header border-bottom border-secondary border-opacity-25 pb-3">
+          <h2 class="modal-title h5 text-white d-flex align-items-center gap-2" id="cpConsoleModalLabel">
+            <i class="bi bi-terminal-fill text-info"></i> CloudPilot Control Plane Access
+          </h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-3">
+          <form class="cp-needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="modalEmailSrv" class="cp-form-label">Work Email / IAM Principal</label>
+              <input type="email" id="modalEmailSrv" name="fullName" class="cp-form-control" placeholder="architect@company.com" required />
+              <div class="cp-invalid-feedback">Please enter a valid enterprise email address.</div>
+            </div>
+            <div class="mb-3">
+              <label for="modalRegionSrv" class="cp-form-label">Primary Control Plane Region</label>
+              <select id="modalRegionSrv" name="plan" class="cp-form-control" required>
+                <option value="us-east-1 (N. Virginia)">us-east-1 (N. Virginia)</option>
+                <option value="eu-central-1 (Frankfurt)">eu-central-1 (Frankfurt)</option>
+                <option value="ap-south-1 (Mumbai)">ap-south-1 (Mumbai)</option>
+                <option value="ap-northeast-1 (Tokyo)">ap-northeast-1 (Tokyo)</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="modalTokenSrv" class="cp-form-label">Password or SSO Passkey</label>
+              <input type="password" id="modalTokenSrv" class="cp-form-control" minlength="6" placeholder="••••••••••••" required />
+              <div class="cp-invalid-feedback">Please enter at least 6 characters.</div>
+            </div>
+            <button type="submit" class="btn-cp-primary w-100">
+              <i class="bi bi-shield-lock"></i> Verify Credentials (Demo Preview)
+            </button>
+            <div class="cp-form-status" hidden></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle & CloudPilot Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
+
